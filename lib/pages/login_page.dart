@@ -1,12 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:pos_application/components/my_button.dart';
 import 'package:pos_application/components/my_textfield.dart';
+import 'package:pos_application/pages/home_page.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  final void Function()? onTap;
+
+  const LoginPage({
+    super.key,
+    this.onTap,
+  });
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  LoginPage({super.key});
+  void login() {
+    //authetication part
+
+    //navigation
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => const HomePage(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +70,32 @@ class LoginPage extends StatelessWidget {
             //sign in button
             MyButton(
               text: 'Sign IN',
-              onTap: () {},
+              onTap: login,
             ),
+            const SizedBox(height: 25),
             //not member regiter now
-            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Not a Member",
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  ),
+                ),
+                const SizedBox(width: 4),
+                GestureDetector(
+                  onTap: widget.onTap,
+                  child: Text(
+                    "Register Now",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pos_application/pages/login_page.dart';
+import 'package:pos_application/auth/login_or_register.dart';
 import 'package:pos_application/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -19,9 +19,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: Provider.of<ThemeProvider>(context).themedata,
-      home:  LoginPage(),
-    );
+        debugShowCheckedModeBanner: false,
+        theme: Provider.of<ThemeProvider>(context).themedata,
+        home: const LoginorRegister());
   }
 }
