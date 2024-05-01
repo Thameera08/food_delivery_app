@@ -45,7 +45,7 @@ class MyDescriptionBox extends StatelessWidget {
                 style: myPrimaryTextStyle,
               ),
               Text(
-                'Delivery Fee',
+                'Delivery Time',
                 style: mySecondaryTextStyle,
               ),
             ],
