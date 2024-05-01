@@ -27,13 +27,13 @@ class MyFoodTile extends StatelessWidget {
                     children: [
                       Text(
                         food.name,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        '\Rs' + food.price.toString(),
+                        'Rs' + food.price.toString(),
                         style: TextStyle(
                           color: Theme.of(context).colorScheme.primary,
                         ),
